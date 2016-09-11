@@ -15,6 +15,8 @@
 
 //Returns input from the command line after prompting promptString. MAX input chars = 255
 +(NSString *)inputForPrompt:(NSString *)promptString;
++(int)intInputForPrompt:(NSString *)promptString;
+
 
 
 //-(NSString *)inputWithHistoryForPrompt:(NSString *)promptString;

@@ -7,11 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GameController.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        
+        GameController *gameController = [[GameController alloc] initWithSideLength:[InputCollector intInputForPrompt:@"Side Length"] andDifficulty:[InputCollector intInputForPrompt:@"Difficulty"]];
+        
+        
+        NSLog(@"Test");
+        
+        
+    
+    
+    
     }
     return 0;
 }

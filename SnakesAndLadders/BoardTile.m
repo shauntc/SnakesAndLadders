@@ -23,9 +23,15 @@
     return self;
 }
 
+//- (instancetype)initWithNextTile:(BoardTile *)next previousTile:(BoardTile *) previoustileNumber:(int)number
+//{
+//    self = [self initWithNextTile:<#(BoardTile *)#> previousTile:<#(BoardTile *)#> snakeLink:<#(BoardTile *)#> ladderLink:<#(BoardTile *)#> tileNumber:<#(int)#>
+//    return self;
+//}
+
 - (instancetype)init
 {
-    self = [self initWithNextTile:nil previousTile:nil snakeLink:nil ladderLink:nil];
+    self = [self initWithNextTile:nil previousTile:nil snakeLink:nil ladderLink:nil tileNumber:0];
     return self;
 }
 

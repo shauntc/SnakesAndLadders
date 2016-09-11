@@ -29,6 +29,24 @@
     return [[NSString stringWithUTF8String:inputChars] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
 }
+
++(int)intInputForPrompt:(NSString *)promptString
+{
+    
+    int i = 0;
+    NSString *userInput = [[NSString alloc] init];
+    
+    do
+    {
+        userInput = [InputCollector inputForPrompt:promptString];
+        
+        i = [userInput intValue];
+        
+    }while(i == 0 && ![userInput isEqualToString:@"0"]);
+    
+    
+    return i;
+}
 //
 //-(NSString *)inputWithHistoryForPrompt:(NSString *)promptString
 //{

@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BoardTile.h"
 
 @interface Player : NSObject
+
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) BoardTile *location;
+
+- (instancetype)initWithName:(NSString *)name;
 
 @end
