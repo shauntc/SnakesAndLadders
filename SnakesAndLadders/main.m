@@ -15,8 +15,12 @@ int main(int argc, const char * argv[]) {
         GameController *gameController = [[GameController alloc] initWithSideLength:[InputCollector intInputForPrompt:@"Side Length"] andDifficulty:[InputCollector intInputForPrompt:@"Difficulty"]];
         
         
+        [gameController startGameWith:[InputCollector intInputForPrompt:@"How Many Players?"]];
+        
         NSLog(@"Test");
         
+        
+    
         
     
     

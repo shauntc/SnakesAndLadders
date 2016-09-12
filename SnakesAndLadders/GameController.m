@@ -136,12 +136,55 @@
         self.players = [self.players arrayByAddingObject:[[Player alloc] initWithName:[InputCollector inputForPrompt:[NSString stringWithFormat:@"What is Player %i's name",i]]]];
     }
     
+    for(Player *player in self.players)
+    {
+        player.location = self.start;
+    }
+    
     BOOL play = YES;
     
     while(play)
     {
-        NSString *userInput = [InputCollector inputForPrompt:@""];
-        
+        for(Player *player in self.players)
+        {
+            while(YES)
+            {
+            
+            
+                int roll = [InputCollector intInputForPrompt:[NSString stringWithFormat:@"%@'s turn, input your roll:",player.name]];
+                
+                if (roll <= 6 && roll >=1)
+                {
+                    BoardTile *nextTile = [self returnTile:(player.location.tileNumber + roll)];
+                    NSLog(@"You move from space %i to space %i", player.location.tileNumber, nextTile.tileNumber);
+                    player.location = nextTile;
+                    
+                    if(player.location.snakeLink)
+                    {
+                        NSLog(@"You landed on a snake, you move from space %i to space %i", player.location.tileNumber, player.location.snakeLink.tileNumber);
+                        player.location = player.location.snakeLink;
+                    }
+                    else if(player.location.ladderLink)
+                    {
+                        NSLog(@"You landed on ladder, you move from space %i to space %i", player.location.tileNumber, player.location.ladderLink.tileNumber);
+                        player.location = player.location.ladderLink;
+                    }
+                    
+                    
+                    if(player.location == nil)
+                    {
+                        NSLog(@"%@ has won! Congratulations", player.name);
+                        play = NO;
+                        break;
+                    }
+                    
+                    break;
+                }
+                else{
+                    NSLog(@"Thats not a valid roll");
+                }
+            }
+        }
         
         
         

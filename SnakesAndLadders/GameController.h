@@ -26,7 +26,7 @@
 
 
 
--(void)startGame;
+-(void)startGameWith:(int)players;
 - (instancetype)initWithSideLength:(int)length andDifficulty:(int)difficulty;
 
 
